@@ -17,16 +17,12 @@ GitHub Pages via `.github/workflows/deploy.yml` on every push to `main`
 (pnpm, build, `404.html` = copy of `index.html` so deep links load the app).
 Repo settings → Pages → Source must be **GitHub Actions**.
 
-### `base` and the custom domain trap
+### `base` and the custom domain
 
-There is no custom domain yet, so `vite.config.ts` has `base: "/Synthv2rf/"` and the site
-lives at https://norin-web.github.io/Synthv2rf/. When a domain is attached, in the **same commit**:
-
-1. `base: "/"` in `vite.config.ts`
-2. `public/CNAME` with the bare domain
-3. update `og:image` / `og:url` in `index.html`
-
-Otherwise every asset 404s and the page goes blank.
+The site is served from the custom domain **syntx.best** (`public/CNAME`), so `vite.config.ts`
+has `base: "/"`. If the domain is ever removed, in the **same commit** set `base: "/Synthv2rf/"`,
+delete `public/CNAME` and fix `og:*` / canonical in `index.html` — otherwise every asset 404s and
+the page goes blank.
 
 ## Where things live
 
