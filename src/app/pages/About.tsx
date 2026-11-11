@@ -13,7 +13,7 @@ export default function About() {
           <Reveal as="p" className="eyebrow">About Syntx</Reveal>
           <Split className="h1 bhero__title" parts={[["We make AI feel like a simple chat"]]} />
           <Reveal as="p" className="lead" delay={250}>
-            Syntx is built by {site.operator}. We bring the best image and video models into one place, so anyone can create without learning a dozen tools.
+            Syntx is made by {site.operator} in Essen, Germany. We bring the best image and video models into one place, so anyone can create without learning a dozen tools.
           </Reveal>
         </div>
       </section>

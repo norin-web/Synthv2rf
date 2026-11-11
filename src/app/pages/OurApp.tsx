@@ -28,7 +28,7 @@ export default function OurApp() {
             </Reveal>
             <Reveal className="ahero__cta" delay={350}>
               <Btn href={app.url} size="lg">Download on the App Store</Btn>
-              <span className="note">iOS {app.minIOS}+</span>
+              <span className="note">For iPhone · No account needed</span>
             </Reveal>
           </div>
           <div className="ahero__phones">
@@ -78,7 +78,7 @@ export default function OurApp() {
         <div className="container specs">
           <div className="specs__head">
             <Reveal as="h2" className="h3">At a glance</Reveal>
-            <Reveal as="p" className="lead" delay={100}>Store details will be filled in once Syntx goes live on the App Store.</Reveal>
+            <Reveal as="p" className="lead" delay={100}>No account, no ads, no analytics. What you create stays on your iPhone.</Reveal>
           </div>
           <Reveal as="dl" className="specs__table">
             {specs.map(([k, v]) => (

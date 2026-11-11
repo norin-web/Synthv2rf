@@ -1,24 +1,22 @@
 // Every fact about the operator, the app and its features lives here.
-// Pages read only from this file. Unknown values are marked PLACEHOLDER.
-// Facts come from the Figma design of the app ("Syntx v1"); the app is not
-// on the App Store yet, so store data (min iOS, category, price) is unknown.
+// Pages read only from this file. Sources: the Figma design of the app ("Syntx v1")
+// and the owner's Privacy Policy / Terms of Use (effective November 11, 2026).
+// Store data (min iOS, category, price) is not shown until the App Store page is live.
 
 export const site = {
   brand: "Syntx",
   tagline: "AI image and video generator for iPhone",
   email: "jancao@seifertapp.click",
-  operator: "PLACEHOLDER", // company that ships the app — confirm with the documents
+  operator: "Jan Seifert",
+  address: "Camphausenstraße 12, 45147 Essen, Germany",
   year: 2026,
   disclaimer:
-    "Nano Banana, GPT Image, Seedream, Flux, Runway, Grok, Luma, Kling, Google Veo, Seedance, Sora and other model names are trademarks of their respective owners and are used only to identify the models available in the app.",
+    "Nano Banana, GPT Image, Seedream, Flux, Runway, Grok, Luma, Kling, Google Veo, Seedance, Sora and other model names are trademarks of their respective owners and are used only to identify the models available in the app. The SYNTX name is used under authorization from the rights holder.",
 };
 
 export const app = {
   id: "6821891250",
   url: "https://apps.apple.com/app/id6821891250",
-  minIOS: "PLACEHOLDER",
-  category: "PLACEHOLDER",
-  price: "PLACEHOLDER",
 };
 
 export const nav = [
@@ -46,7 +44,7 @@ export const features = [
   },
   {
     title: "Ask AI",
-    text: "Not sure what to write? The built‑in assistant suggests ideas and helps you shape the prompt.",
+    text: "Not sure what to write? Syntx AI Helper suggests ideas and helps you shape the prompt. Included with a subscription.",
     screen: "/images/screen-assistant.webp",
   },
   {
@@ -56,7 +54,7 @@ export const features = [
   },
   {
     title: "History",
-    text: "Your images, videos and chats are kept in History. Search them by name and pick up where you left off.",
+    text: "Your images, videos and chats are kept in History on your iPhone. Search them by name and pick up where you left off.",
     screen: "/images/screen-history.webp",
   },
 ];
@@ -115,7 +113,7 @@ export const appFeatures = [
   {
     label: "Ask AI",
     title: "A helper for when the words won’t come",
-    text: "Ask how to write a prompt, what’s trending in AI, or for a short video scenario. Tap a suggestion to start.",
+    text: "Syntx AI Helper answers questions about the app, improves your prompt or drafts a short video scenario. Available with a subscription.",
     screen: "/images/screen-assistant.webp",
   },
   {
@@ -127,7 +125,7 @@ export const appFeatures = [
   {
     label: "History",
     title: "Every result, easy to find again",
-    text: "Your images, videos and AI chats are listed in History. Search by title and reopen any of them.",
+    text: "Your images, videos and AI chats are stored on your iPhone and listed in History. Search by title and reopen any of them.",
     screen: "/images/screen-history.webp",
   },
 ];
@@ -137,26 +135,27 @@ export const specs: [string, string][] = [
   ["AI models", "10+ image and video models"],
   ["Aspect ratios", "16:9, 9:16, 1:1, 3:2, 2:3, 21:9, 9:21"],
   ["Input", "Text, voice, camera and photo library"],
-  ["Category", app.category],
-  ["Compatibility", `iPhone, iOS ${app.minIOS} or later`],
+  ["Device", "iPhone"],
+  ["Account", "Not needed, no login or email"],
+  ["Storage", "On your iPhone, no cloud library"],
+  ["Subscription", "In-app, billed by Apple"],
   ["Languages", "English"],
-  ["Price", `${app.price} (in-app subscription)`],
-  ["Developer", site.operator],
+  ["Developer", `${site.operator}, Essen, Germany`],
 ];
 
 /** About page */
 export const approach = {
   lead: "New AI models appear every month, and each one lives in its own app or website. We think that’s too much to keep up with.",
-  text: "So we built one chat where you describe what you want, pick a model and get the result. The assistant helps when you’re not sure what to write, and History keeps everything you made.",
+  text: "So we built one chat where you describe what you want, pick a model and get the result. Syntx AI Helper steps in when you’re not sure what to write, and History keeps everything you made on your iPhone.",
 };
 
 export const principles = [
   { title: "Your idea comes first", text: "A plain sentence is enough. No settings to learn before you see a result." },
   { title: "Choice, not lock-in", text: "Different models are good at different things, so you can switch between them freely." },
-  { title: "Clear about AI", text: "Before your first request, the app explains what is sent to the AI provider and asks for your consent." },
+  { title: "Private by default", text: "No account, no ads, no analytics. Your creations and chats stay on your iPhone." },
 ];
 
-/** Support: question chips → answer shown as a chat. Draft answers — check with the owner. */
+/** Support: question chips → answer shown as a chat. Facts match the Privacy Policy and Terms. */
 export const faq = [
   {
     q: "How do I create an image or a video?",
@@ -179,6 +178,16 @@ export const faq = [
     a: "Open History in the tab bar. Your images, videos and AI chats are listed there, and you can search them by title.",
   },
   {
+    q: "Do I need an account?",
+    short: "Do I need an account?",
+    a: "No. Syntx works without registration, a login or an email address. Paid features are unlocked by your App Store subscription.",
+  },
+  {
+    q: "What does the subscription include?",
+    short: "What’s in the subscription",
+    a: "Syntx AI Helper and some other features need an active subscription. The price, renewal period and any trial are shown on the purchase screen before you pay, and Apple handles the billing.",
+  },
+  {
     q: "How do I cancel my subscription?",
     short: "Cancel subscription",
     a: "Subscriptions are managed by Apple. Open iPhone Settings → your name → Subscriptions → Syntx → Cancel Subscription. Deleting the app doesn’t cancel it.",
@@ -191,7 +200,12 @@ export const faq = [
   {
     q: "What happens to my prompts and photos?",
     short: "My prompts and photos",
-    a: "Before your first request the app shows an AI processing notice: your prompt and images are sent to the AI provider to create the result. Details are in the Privacy Policy.",
+    a: "To create a result, your prompt, settings and any reference photo are sent to fal.ai, our AI provider. Results, History and chats are stored on your iPhone, not in an online account. Details are in the Privacy Policy.",
+  },
+  {
+    q: "What happens to my History if I delete the app?",
+    short: "Deleting the app",
+    a: "History lives only on your iPhone, so deleting the app removes it. Save the images and videos you want to keep to Photos first. Deleting the app doesn’t cancel your subscription.",
   },
   {
     q: "The app can’t access my camera or photos",

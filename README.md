@@ -27,9 +27,10 @@ the page goes blank.
 ## Where things live
 
 - `src/app/content/site.ts` — every fact: brand, email, operator, App Store link, models, FAQ…
-  Unknown store data is `PLACEHOLDER` (the app is not live yet).
-- `src/app/content/legal.ts` — Privacy Policy and Terms of Use. Paste the owner’s texts
-  **verbatim** (only `## ` headings and `- ` lists); until then the pages show a placeholder.
+  Facts follow the Privacy Policy / Terms. Store data (min iOS, category, price) is left out
+  until the App Store page is live — add it then.
+- `src/app/content/legal.ts` — Privacy Policy and Terms of Use. The owner’s texts
+  are pasted **verbatim** (only `## ` headings and `- ` lists added); never edit the wording.
 - `src/styles/index.css` — tokens in `:root` (mirror Paper), all layout.
 - Images: `public/images/*.webp` (sources in `../File/materials`). Always reference them through
   `img()` from `src/app/utils/img.ts`, never a bare `"/images/…"` string.

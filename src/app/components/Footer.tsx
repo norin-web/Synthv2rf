@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <div className="footer__copy">
             <p>
-              © {site.year} {site.operator}. {site.disclaimer}
+              © {site.year} {site.operator}, {site.address}. {site.disclaimer}
             </p>
             <button onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>Back to top ↑</button>
           </div>

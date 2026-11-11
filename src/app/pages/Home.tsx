@@ -34,7 +34,7 @@ function Hero() {
         </Reveal>
         <Reveal className="hero__cta" delay={400}>
           <Btn href={app.url} size="lg">Download on the App Store</Btn>
-          <span className="note">For iPhone · iOS {app.minIOS}+</span>
+          <span className="note">For iPhone · No account needed</span>
         </Reveal>
       </div>
       <div className="hero__phone">
@@ -214,7 +214,7 @@ function Benefits() {
             </div>
             <div className="card__copy">
               <h3 className="h5">Nothing gets lost</h3>
-              <p className="muted">History keeps your images, videos and chats. Search it by name.</p>
+              <p className="muted">History keeps your images, videos and chats on your iPhone. Search it by name.</p>
             </div>
           </Reveal>
           <Reveal className="card card--small" delay={160}>
@@ -223,7 +223,7 @@ function Benefits() {
             </div>
             <div className="card__copy">
               <h3 className="h5">Stuck? Ask AI</h3>
-              <p className="muted">The assistant suggests ideas and helps you shape the prompt.</p>
+              <p className="muted">Syntx AI Helper suggests ideas and helps you shape the prompt.</p>
             </div>
           </Reveal>
         </div>

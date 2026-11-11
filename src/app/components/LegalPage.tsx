@@ -21,6 +21,9 @@ const linkify = (text: string) =>
     /@/.test(part) ? <a key={i} href={`mailto:${part}`}>{part}</a> : part,
   );
 
+// section headings keep the numbers of the original document ("1. Who is…")
+const num = (title: string) => title.match(/^(\d+)\./)?.[1];
+
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 /** Split the verbatim text into an intro and "## " sections; wording is never changed. */
@@ -94,6 +97,7 @@ export default function LegalPage({ doc }: { doc: Doc }) {
     if (el) scrollTo({ top: el.getBoundingClientRect().top + scrollY - 110, behavior: "smooth" });
   };
   const index = Math.max(0, sections.findIndex((s) => s.id === active));
+  const numbered = sections.filter((s) => num(s.title)).length;
 
   return (
     <>
@@ -105,8 +109,9 @@ export default function LegalPage({ doc }: { doc: Doc }) {
           </Reveal>
           <Split className="h1 dhero__title" parts={[[doc.title]]} />
           <Reveal className="dhero__meta" delay={300}>
-            <div><span>Last updated</span><b>{legalUpdated}</b></div>
-            <div><span>Sections</span><b>{sections.length || "PLACEHOLDER"}</b></div>
+            <div><span>Effective date</span><b>{legalUpdated}</b></div>
+            <div><span>Sections</span><b>{numbered}</b></div>
+            <div><span>Operator</span><b>{site.operator}</b></div>
             <div><span>Questions</span><a href={`mailto:${site.email}`}>{site.email}</a></div>
           </Reveal>
         </div>
@@ -122,11 +127,11 @@ export default function LegalPage({ doc }: { doc: Doc }) {
             </label>
             <div className="doc__progress">
               <span className="doc__bar"><i style={{ transform: `scaleX(${progress})` }} /></span>
-              <span className="note">{sections.length ? `Section ${index + 1} of ${sections.length}` : "Text coming soon"}</span>
+              <span className="note">{num(sections[index]?.title ?? "") ? `Section ${num(sections[index].title)} of ${numbered}` : sections[index]?.title ?? "Text coming soon"}</span>
             </div>
             {!!sections.length && (
               <ol className="doc__toc">
-                {sections.map((s, i) => (
+                {sections.map((s) => (
                   <li key={s.id}>
                     <button
                       className={active === s.id ? "is-on" : ""}
@@ -135,7 +140,7 @@ export default function LegalPage({ doc }: { doc: Doc }) {
                       aria-label={s.title}
                       title={s.title}
                     >
-                      <b>{String(i + 1).padStart(2, "0")}</b>
+                      <b>{num(s.title)?.padStart(2, "0") ?? "@"}</b>
                       <i aria-hidden="true" />
                     </button>
                   </li>
@@ -175,7 +180,7 @@ export default function LegalPage({ doc }: { doc: Doc }) {
 
             {shown.map((s) => (
               <section className="lsec" id={s.id} key={s.id}>
-                <h2 className="h4">{sections.indexOf(s) + 1}. {s.title}</h2>
+                <h2 className="h4">{s.title}</h2>
                 {s.blocks.map((b, j) => <Block key={j} text={b} />)}
               </section>
             ))}
